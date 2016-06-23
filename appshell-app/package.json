@@ -1,0 +1,25 @@
+{
+  "name": "my-webworkify-worker",
+  "version": "1.0.0",
+  "description": "trying out a browserifyable web-worker",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/browserify/bin/cmd.js src/index.js > bundle.js",
+    "dev": "wzrd index.js:bundle.js -- --debug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "eslint": "^2.13.1",
+    "standard": "^7.1.2",
+    "webworkify": "^1.3.0",
+    "wzrd": "^1.3.1"
+  },
+  "dependencies": {
+    "hyperx": "^2.0.4",
+    "virtual-dom": "^2.1.1"
+  }
+}
