@@ -1,5 +1,5 @@
 // views
-var h = require('virtual-dom').h
+var h = require('virtual-dom/h')
 var hyperx = require('hyperx')
 var hx = hyperx(h)
 

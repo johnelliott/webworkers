@@ -1,9 +1,17 @@
 var work = require('webworkify')
 var worker = work(require('./worker.js'))
+const createElement = require('virtual-dom/create-element')
 
 worker.addEventListener('message', function (e) {
-  console.log('message from worker', e.data)
-  document.getElementById('result').textContent += e.data
+  console.log('Worker sent: ', typeof e.data, e.data)
+
+  //temp intercept the virtual thing
+  var h = require("virtual-dom/h")
+  var myNode = h("text")
+  var rootNode = createElement(myNode)
+
+  console.log('heres what we rendered', typeof rootNode, rootNode)
+  document.body.appendChild(rootNode)
 })
 
 document.getElementById('doWork')
@@ -14,7 +22,7 @@ document.getElementById('doWork')
     state: [1,2,3]
   }
   var message = JSON.stringify(data)
-  worker.postMessage(message)
+  worker.postMessage(data)
 })
 
 document.getElementById('stop')
